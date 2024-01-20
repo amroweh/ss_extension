@@ -1,0 +1,44 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+    min-width: 300px;
+    min-height: 500px;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#shak_decache_message{
+    margin-top: 3px;
+    padding: 3px;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+#shak_decache_message.hide{
+    display: none;
+}
+
+#shak_decache_message.success{
+    border-color: green;
+    color: green;
+    background-color: rgb(180, 216, 180);
+}
+
+#shak_decache_message.fail{
+    border-color: red;
+    color: red;
+    background-color: rgb(231, 220, 220);
+}
+
+#shak_decache_button_spinner{
+    display: none;
+}
+
+#shak_decache_button_spinner.active{
+    display: inline;
+}

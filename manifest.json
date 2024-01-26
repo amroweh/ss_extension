@@ -6,7 +6,7 @@
   "action": {
     "default_popup": "index.html",
     "default_title": "Click me!",
-    "default_icon": "240.png"
+    "default_icon": "./Assets/sslogo.png"
   },
   "permissions": [
     "tabs",

@@ -1,38 +1,12 @@
-console.log('CONTENT SCRIPT LOADED!!!')
-console.log(document.querySelector('html').classList)
-const generatePopup = isHexa => {
-	const popup = document.createElement('span')
-	popup.classList.add('sky_toolbox_popup')
-	popup.textContent = isHexa ? 'HEXA' : 'LEGACY'
-	popup.style.backgroundColor = isHexa ? 'blue' : 'purple'
-	popup.style.color = 'white'
-	popup.style.fontWeight = 'bold'
-	popup.style.padding = '10px 15px'
-	popup.style.position = 'fixed'
-	popup.style.zIndex = 1000000
-	popup.style.top = 0
-	popup.style.right = 0
-	return popup
-}
+import jira_injector from './Services/jira_injector/main'
+import shak_decacher from './Services/shak_decacher/main'
+import site_identifier from './Services/site_identifier/main'
 
-const addPopup = () => {
-	if (window.location.host !== 'www.skysports.com') return
-	document.querySelector('body').append(generatePopup(document.querySelector('html').classList.contains('is-modern')))
-}
-addPopup()
+console.log('Content script has been loaded. This will run the your services defined in the "Services" folder')
 
-const injectIntoTicket = content => {
-	const ticketBody = document
-		.getElementsByClassName('tox-edit-area__iframe')[0]
-		.contentWindow.document.querySelector('body#tinymce.mce-content-body')
-	if (!ticketBody) throw new Error("Couldn't find the ticket description. Are you sure you've clicked into it?")
-	else ticketBody.innerHTML = content
-}
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	console.log(sender.tab ? 'from a content script:' + sender.tab.url : 'from the extension')
-	if (request.action === 'JIRA_TEMPLATE') {
-		injectIntoTicket(request.jiraTemplateContent)
-		sendResponse('Received JIRA TEMPLATE signal from background!')
-	}
+document.addEventListener('DOMContentLoaded', function () {
+	// Services
+	site_identifier()
+	shak_decacher()
+	jira_injector()
 })

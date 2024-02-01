@@ -1,44 +1,79 @@
-body{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 10px;
-    min-width: 300px;
-    min-height: 500px;
+/* Common Styles */
+body {
+	box-sizing: border-box;
+	margin: 0;
+	min-width: 300px;
+	min-height: 500px;
+    color: rgb(43, 46, 48);
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.flex{
-    display: flex;
-    align-items: center;
-    gap: 5px;
+section{
+    border-bottom: 1px solid rgb(225, 225, 225);
+	padding: 15px 10px;
 }
 
-#shak_decache_message{
-    margin-top: 3px;
-    padding: 3px;
-    border: 1px solid grey;
-    text-align: center;
+h1, h2{
+	font-weight: 400;
+	margin: 0;
 }
 
-#shak_decache_message.hide{
-    display: none;
+h2{
+	margin-bottom: 20px;
 }
 
-#shak_decache_message.success{
-    border-color: green;
-    color: green;
-    background-color: rgb(180, 216, 180);
+button{
+	all: unset;
+	padding: 8px 12px;
+	border: 1px solid rgb(200, 200, 200);
+	border-radius: 2px;
+	transition: border ease 200ms;
 }
 
-#shak_decache_message.fail{
-    border-color: red;
-    color: red;
-    background-color: rgb(231, 220, 220);
+button:hover{
+	border-color: blue;
+	cursor: pointer;
 }
 
-#shak_decache_button_spinner{
-    display: none;
+.flex {
+	display: flex;
+	align-items: center;
+	gap: 5px;
 }
 
-#shak_decache_button_spinner.active{
-    display: inline;
+/* Element Styles */
+#extension_title{
+	background-color: rgb(225, 225, 225);
+	padding: 10px;
+}
+
+#shak_decache_message {
+	margin-top: 3px;
+	padding: 3px;
+	border: 1px solid grey;
+	text-align: center;
+}
+
+#shak_decache_message.hide {
+	display: none;
+}
+
+#shak_decache_message.success {
+	border-color: green;
+	color: green;
+	background-color: rgb(180, 216, 180);
+}
+
+#shak_decache_message.fail {
+	border-color: red;
+	color: red;
+	background-color: rgb(231, 220, 220);
+}
+
+#shak_decache_button_spinner {
+	display: none;
+}
+
+#shak_decache_button_spinner.active {
+	display: inline;
 }

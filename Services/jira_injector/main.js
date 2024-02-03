@@ -1,4 +1,6 @@
 import {callContentScript} from '../../background.js'
+import {JIRA_TICKET_TEMPLATE_BUG, JIRA_TICKET_TEMPLATE_TASK} from './templates.js'
+console.log('hello from jira injector')
 
 const injectIntoTicket = content => {
 	const ticketBody = document
@@ -9,6 +11,9 @@ const injectIntoTicket = content => {
 }
 
 export default () => {
+	let jiraInjectionBugButton = document.querySelector('#jira_injection_bug')
+	let jiraInjectionTaskButton = document.querySelector('#jira_injection_task')
+
 	chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		console.log(sender.tab ? 'from a content script:' + sender.tab.url : 'from the extension')
 		if (request.action === 'JIRA_TEMPLATE') {
@@ -17,14 +22,14 @@ export default () => {
 		}
 	})
 
-	jiraInjectionBugButton.addEventListener('click', async () =>
+	jiraInjectionBugButton?.addEventListener('click', async () =>
 		callContentScript({
 			action: 'JIRA_TEMPLATE',
 			jiraTemplateType: 'BUG',
 			jiraTemplateContent: JIRA_TICKET_TEMPLATE_BUG
 		})
 	)
-	jiraInjectionTaskButton.addEventListener('click', async () =>
+	jiraInjectionTaskButton?.addEventListener('click', async () =>
 		callContentScript({
 			action: 'JIRA_TEMPLATE',
 			jiraTemplateType: 'TASK',

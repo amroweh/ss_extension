@@ -1,3 +1,5 @@
+console.log('hello from site identifier')
+
 const generatePopup = isHexa => {
 	const popup = document.createElement('span')
 	popup.classList.add('sky_toolbox_popup')

@@ -1,33 +1,24 @@
-import {JIRA_TICKET_TEMPLATE_TASK, JIRA_TICKET_TEMPLATE_BUG} from '../jira_injector/templates.js'
-
 import {SHAK_DECACHE_MATCHES, SHAK_FAIL_MESSAGE, SHAK_SUCCESS_MESSAGE, SHAK_URL} from './constants.js'
+console.log('hello from shak decacher')
 
 let shakDecacheButton,
 	shakDecacheButtonSpinner,
 	shakDecacheMessage,
 	shakDecacheMessageResult,
-	shakDecacheMessageContent,
-	jiraInjectionBugButton,
-	jiraInjectionTaskButton = null
+	shakDecacheMessageContent = null
 
 export default () => {
-	document.addEventListener('DOMContentLoaded', function () {
-		shakDecacheButton = document.querySelector('#shak_decache_button')
-		shakDecacheButtonSpinner = document.querySelector('#shak_decache_button_spinner')
-		shakDecacheMessage = document.querySelector('#shak_decache_message')
-		shakDecacheMessageResult = document.querySelector('#shak_decache_message_result')
-		shakDecacheMessageContent = document.querySelector('#shak_decache_message_content')
-		jiraInjectionBugButton = document.querySelector('#jira_injection_bug')
-		jiraInjectionTaskButton = document.querySelector('#jira_injection_task')
+	shakDecacheButton = document.querySelector('#shak_decache_button')
+	shakDecacheButtonSpinner = document.querySelector('#shak_decache_button_spinner')
+	shakDecacheMessage = document.querySelector('#shak_decache_message')
+	shakDecacheMessageResult = document.querySelector('#shak_decache_message_result')
+	shakDecacheMessageContent = document.querySelector('#shak_decache_message_content')
 
-		shakDecacheButton.addEventListener('click', () => {
-			clearShakDecacheMessage()
-			hideShakDecacheMessage()
-			showSpinner()
-			decacheCurrentURL()
-		})
-
-
+	shakDecacheButton?.addEventListener('click', () => {
+		clearShakDecacheMessage()
+		hideShakDecacheMessage()
+		showSpinner()
+		decacheCurrentURL()
 	})
 }
 

@@ -5,7 +5,7 @@
   "version": "1.0",
   "action": {
     "default_popup": "index.html",
-    "default_title": "Click me!",
+    "default_title": "Sky Toolbox",
     "default_icon": "./Assets/sslogo.png"
   },
   "permissions": [

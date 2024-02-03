@@ -1,5 +1,3 @@
-console.log('hello from site identifier')
-
 const generatePopup = isHexa => {
 	const popup = document.createElement('span')
 	popup.classList.add('sky_toolbox_popup')
@@ -15,9 +13,9 @@ const generatePopup = isHexa => {
 	return popup
 }
 
-export default () => {
-	if (window.location.host !== 'www.skysports.com') {
-		const isHexa = generatePopup(document.querySelector('html').classList.contains('is-modern'))
-		document.querySelector('body').append(isHexa)
+;(() => {
+	if (window.location.host === 'www.skysports.com') {
+		const isHexa = document.querySelector('html').classList.contains('is-modern')
+		document.querySelector('body').append(generatePopup(isHexa))
 	}
-}
+})()

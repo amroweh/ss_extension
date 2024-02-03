@@ -1,5 +1,4 @@
 import {SHAK_DECACHE_MATCHES, SHAK_FAIL_MESSAGE, SHAK_SUCCESS_MESSAGE, SHAK_URL} from './constants.js'
-console.log('hello from shak decacher')
 
 let shakDecacheButton,
 	shakDecacheButtonSpinner,
@@ -7,20 +6,21 @@ let shakDecacheButton,
 	shakDecacheMessageResult,
 	shakDecacheMessageContent = null
 
-export default () => {
+;(() => {
 	shakDecacheButton = document.querySelector('#shak_decache_button')
 	shakDecacheButtonSpinner = document.querySelector('#shak_decache_button_spinner')
 	shakDecacheMessage = document.querySelector('#shak_decache_message')
 	shakDecacheMessageResult = document.querySelector('#shak_decache_message_result')
 	shakDecacheMessageContent = document.querySelector('#shak_decache_message_content')
-
+	console.log(shakDecacheButton)
 	shakDecacheButton?.addEventListener('click', () => {
+		console.log('clicked shak decache button')
 		clearShakDecacheMessage()
 		hideShakDecacheMessage()
 		showSpinner()
 		decacheCurrentURL()
 	})
-}
+})()
 
 const decacheCurrentURL = async () => {
 	chrome.tabs.query({active: true, currentWindow: true}, async tabs => {

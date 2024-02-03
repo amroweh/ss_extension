@@ -10,7 +10,7 @@ const injectIntoTicket = content => {
 	else ticketBody.innerHTML = content
 }
 
-export default () => {
+;(() => {
 	let jiraInjectionBugButton = document.querySelector('#jira_injection_bug')
 	let jiraInjectionTaskButton = document.querySelector('#jira_injection_task')
 
@@ -36,4 +36,4 @@ export default () => {
 			jiraTemplateContent: JIRA_TICKET_TEMPLATE_TASK
 		})
 	)
-}
+})()

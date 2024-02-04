@@ -1,46 +1,24 @@
-import {JIRA_TICKET_TEMPLATE_TASK, JIRA_TICKET_TEMPLATE_BUG} from './JIRA_TEMPLATES.js'
-import {callContentScript} from './background.js'
 import {SHAK_DECACHE_MATCHES, SHAK_FAIL_MESSAGE, SHAK_SUCCESS_MESSAGE, SHAK_URL} from './constants.js'
 
 let shakDecacheButton,
 	shakDecacheButtonSpinner,
 	shakDecacheMessage,
 	shakDecacheMessageResult,
-	shakDecacheMessageContent,
-	jiraInjectionBugButton,
-	jiraInjectionTaskButton = null
+	shakDecacheMessageContent = null
 
-document.addEventListener('DOMContentLoaded', function () {
+;(() => {
 	shakDecacheButton = document.querySelector('#shak_decache_button')
 	shakDecacheButtonSpinner = document.querySelector('#shak_decache_button_spinner')
 	shakDecacheMessage = document.querySelector('#shak_decache_message')
 	shakDecacheMessageResult = document.querySelector('#shak_decache_message_result')
 	shakDecacheMessageContent = document.querySelector('#shak_decache_message_content')
-	jiraInjectionBugButton = document.querySelector('#jira_injection_bug')
-	jiraInjectionTaskButton = document.querySelector('#jira_injection_task')
-
 	shakDecacheButton.addEventListener('click', () => {
 		clearShakDecacheMessage()
 		hideShakDecacheMessage()
 		showSpinner()
 		decacheCurrentURL()
 	})
-
-	jiraInjectionBugButton.addEventListener('click', async () =>
-		callContentScript({
-			action: 'JIRA_TEMPLATE',
-			jiraTemplateType: 'BUG',
-			jiraTemplateContent: JIRA_TICKET_TEMPLATE_BUG
-		})
-	)
-	jiraInjectionTaskButton.addEventListener('click', async () =>
-		callContentScript({
-			action: 'JIRA_TEMPLATE',
-			jiraTemplateType: 'TASK',
-			jiraTemplateContent: JIRA_TICKET_TEMPLATE_TASK
-		})
-	)
-})
+})()
 
 const decacheCurrentURL = async () => {
 	chrome.tabs.query({active: true, currentWindow: true}, async tabs => {

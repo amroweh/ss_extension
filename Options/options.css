@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 15px;
+}
+
+label{
+    display: block;
+    margin-bottom: 15px;
+}
+
+button{
+    all: unset;
+	padding: 8px 12px;
+	border: 1px solid rgb(200, 200, 200);
+	border-radius: 2px;
+	transition: border ease 200ms;
+}
+
+button:hover{
+	border-color: blue;
+	cursor: pointer;
+}
+
+#status:empty{
+    padding: 0;
+}
+#status{
+    color: rgb(3, 56, 3);
+    background-color: rgb(230, 238, 230);
+    padding: 5px 8px;
+    border-radius: 2px;
+}

@@ -3,34 +3,40 @@
 		<link rel="stylesheet" href="index.css" />
 	</head>
 	<body>
-		<h1>Sky ToolBox</h1>
-		<h2>Decacher</h2>
-		<div id="shak_decache_box">
-			<div class="flex">
-				<button id="shak_decache_button">SHAK</button>
-				<img
-					src="./loading.gif"
-					id="shak_decache_button_spinner"
-					alt="loading spinner for shak decache button"
-					width="20px"
-					height="20px" />
+		<h1 id="extension_title">Sky ToolBox</h1>
+		<section>
+			<h2>Decacher</h2>
+			<div id="shak_decache_box">
+				<div class="flex">
+					<button id="shak_decache_button">SHAK</button>
+					<img
+						src="./Assets/loading.gif"
+						id="shak_decache_button_spinner"
+						alt="loading spinner for shak decache button"
+						width="20px"
+						height="20px" />
+				</div>
+				<div id="shak_decache_message" class="hide">
+					<div id="shak_decache_message_result"></div>
+					<div id="shak_decache_message_content"></div>
+				</div>
 			</div>
-			<div id="shak_decache_message" class="hide">
-				<div id="shak_decache_message_result"></div>
-				<div id="shak_decache_message_content"></div>
+		</section>
+		<section>
+			<h2>JIRA Templates</h2>
+			<div id="jira_injection_box">
+				<div class="flex">
+					<button class="jira_injection_btn" id="jira_injection_task">
+						<img src="./Services/jira_injector/icons/task.png" alt="" />Task
+					</button>
+					<button class="jira_injection_btn" id="jira_injection_bug">
+						<img src="./Services/jira_injector/icons/bug.png" alt="" />Bug
+					</button>
+				</div>
 			</div>
-		</div>
-		<h2>JIRA Templates</h2>
-		<div id="jira_injection_box">
-			<div class="flex">
-				<button id="jira_injection_task">Task</button>
-				<button id="jira_injection_bug">Bug</button>
-			</div>
-		</div>
+		</section>
 
-		<script src="content.js" type="module"></script>
-		<script src="JIRA_TEMPLATES.js" type="module"></script>
-		<script src="popup.js" type="module"></script>
-		<script src="constants.js" type="module"></script>
+		<script src="./Services/shak_decacher/index.js" type="module"></script>
+		<script src="./Services/jira_injector/index.js" type="module"></script>
 	</body>
 </html>

@@ -1,24 +1,30 @@
 {
   "manifest_version": 3,
-  "name": "Decacher",
-  "description": "Decaches some SHAK & AKAMAI endpoints",
+  "name": "Sky Toolbox",
+  "description": "Automates repetitive tasks for an optimal workflow",
   "version": "1.0",
   "action": {
     "default_popup": "index.html",
-    "default_title": "Click me!",
+    "default_title": "Sky Toolbox",
     "default_icon": "./Assets/sslogo.png"
   },
   "permissions": [
     "tabs",
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "content_scripts": [
     {
-      "js": ["content.js"],
-      "matches": ["<all_urls>"]
+      "js": ["Services/site_identifier/index.js","Services/shak_decacher/index.js","Services/jira_injector/communication.js"],
+      "matches": ["<all_urls>"],
+      "type": "module"
     }
   ],
+  "options_ui": {
+    "page": "Options/options.html",
+    "open_in_tab": false
+  },
   "background": {
     "service_worker": "background.js",
     "type": "module"

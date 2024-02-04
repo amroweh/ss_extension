@@ -16,8 +16,9 @@
   ],
   "content_scripts": [
     {
-      "js": ["Services/site_identifier/main.js","Services/shak_decacher/main.js","Services/jira_injector/main.js","content.js"],
-      "matches": ["<all_urls>"]
+      "js": ["Services/site_identifier/index.js","Services/shak_decacher/index.js","Services/jira_injector/communication.js"],
+      "matches": ["<all_urls>"],
+      "type": "module"
     }
   ],
   "options_ui": {

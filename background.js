@@ -1,13 +1,1 @@
-console.log('hello from background...')
-
-export const callContentScript = async ({action, jiraTemplateType, jiraTemplateContent}) => {
-	console.log({action, jiraTemplateType})
-	const [tab] = await chrome.tabs.query({active: true, currentWindow: true})
-	const response = await chrome.tabs.sendMessage(tab.id, {
-		action,
-		jiraTemplateType,
-        jiraTemplateContent
-	})
-	// You can do something with the response here...
-	console.log(response)
-}
+// This file is currently empty, but can be used in order to add processes that run in the background when the extension is running

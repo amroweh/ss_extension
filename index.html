@@ -26,15 +26,17 @@
 			<h2>JIRA Templates</h2>
 			<div id="jira_injection_box">
 				<div class="flex">
-					<button id="jira_injection_task">Task</button>
-					<button id="jira_injection_bug">Bug</button>
+					<button class="jira_injection_btn" id="jira_injection_task">
+						<img src="./Services/jira_injector/icons/task.png" alt="" />Task
+					</button>
+					<button class="jira_injection_btn" id="jira_injection_bug">
+						<img src="./Services/jira_injector/icons/bug.png" alt="" />Bug
+					</button>
 				</div>
 			</div>
 		</section>
 
-		<script src="./Services/site_identifier/main.js" type="module"></script>
-		<script src="./Services/shak_decacher/main.js" type="module"></script>
-		<script src="./Services/jira_injector/main.js" type="module"></script>
-		<script src="content.js" type="module"></script>
+		<script src="./Services/shak_decacher/index.js" type="module"></script>
+		<script src="./Services/jira_injector/index.js" type="module"></script>
 	</body>
 </html>

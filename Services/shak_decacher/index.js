@@ -12,9 +12,7 @@ let shakDecacheButton,
 	shakDecacheMessage = document.querySelector('#shak_decache_message')
 	shakDecacheMessageResult = document.querySelector('#shak_decache_message_result')
 	shakDecacheMessageContent = document.querySelector('#shak_decache_message_content')
-	console.log(shakDecacheButton)
-	shakDecacheButton?.addEventListener('click', () => {
-		console.log('clicked shak decache button')
+	shakDecacheButton.addEventListener('click', () => {
 		clearShakDecacheMessage()
 		hideShakDecacheMessage()
 		showSpinner()

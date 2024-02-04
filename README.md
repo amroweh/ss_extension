@@ -5,9 +5,9 @@ Sky Sports Extension (SS Ext) is a chrome extension that allows you to reduce th
 ## Current Capabilities
 
 Currently, SS Ext can do the following:
-1. _JIRA Injector_: Injects a predefined template into a JIRA ticket description. For this to work, click on the desired ticket, click into the description input, click on the extension button that you desire.
-2. _SHAK Decacher - UNDER DEVELOPMENT_: Click on the SHAK decacher button. This will determine which URL you are at, and using a predefined map of url -> decache url(s), will send a SHAK request to decache those urls
-3. _Site Identifier_: When you're on Sky Sports live website, this will automatically know if you're on a HEXA or Legacy page and show it as a badge on the top right side of the screen
+1. **JIRA Injector**: Injects a predefined template into a JIRA ticket description. For this to work, click on the desired ticket, click into the description input, click on the extension button that you desire.
+2. **SHAK Decacher - _UNDER DEVELOPMENT_**: Click on the SHAK decacher button. This will determine which URL you are at, and using a predefined map of url -> decache url(s), will send a SHAK request to decache those urls
+3. **Site Identifier**: When you're on Sky Sports live website, this will automatically know if you're on a HEXA or Legacy page and show it as a badge on the top right side of the screen
 
 ## Adding Your Own Service
 

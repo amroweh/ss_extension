@@ -16,7 +16,7 @@
   ],
   "content_scripts": [
     {
-      "js": ["Services/site_identifier/index.js","Services/shak_decacher/index.js","Services/jira_injector/communication.js"],
+      "js": ["Services/site_identifier/index.js","Services/shak_decacher/index.js","Services/jira_injector/communication.js", "Services/akamai_purge/index.js"],
       "matches": ["<all_urls>"],
       "type": "module"
     }

@@ -5,10 +5,10 @@
 	<body>
 		<h1 id="extension_title">Sky ToolBox</h1>
 		<section>
-			<h2>Decacher</h2>
+			<h2>SHAK Decacher</h2>
 			<div id="shak_decache_box">
 				<div class="flex">
-					<button id="shak_decache_button">SHAK</button>
+					<button id="shak_decache_button">SHAK Decache</button>
 					<img
 						src="./Assets/loading.gif"
 						id="shak_decache_button_spinner"
@@ -19,6 +19,24 @@
 				<div id="shak_decache_message" class="hide">
 					<div id="shak_decache_message_result"></div>
 					<div id="shak_decache_message_content"></div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h2>Akamai Purge</h2>
+			<div id="akamai_purge_box">
+				<div class="flex">
+					<button id="akamai_purge_button">Akamai Purge</button>
+					<img
+						src="./Assets/loading.gif"
+						id="akamai_purge_button_spinner"
+						alt="loading spinner for akamai purge button"
+						width="20px"
+						height="20px" />
+				</div>
+				<div id="akamai_purge_message" class="hide">
+					<div id="akamai_purge_message_result"></div>
+					<div id="akamai_purge_message_content"></div>
 				</div>
 			</div>
 		</section>
@@ -38,5 +56,6 @@
 
 		<script src="./Services/shak_decacher/index.js" type="module"></script>
 		<script src="./Services/jira_injector/index.js" type="module"></script>
+		<script src="./Services/akamai_purge/index.js" type="module"></script>
 	</body>
 </html>

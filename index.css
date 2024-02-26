@@ -4,25 +4,26 @@ body {
 	margin: 0;
 	min-width: 300px;
 	min-height: 500px;
-    color: rgb(43, 46, 48);
-	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: rgb(43, 46, 48);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-section{
-    border-bottom: 1px solid rgb(225, 225, 225);
+section {
+	border-bottom: 1px solid rgb(225, 225, 225);
 	padding: 15px 10px;
 }
 
-h1, h2{
+h1,
+h2 {
 	font-weight: 400;
 	margin: 0;
 }
 
-h2{
+h2 {
 	margin-bottom: 20px;
 }
 
-button{
+button {
 	all: unset;
 	padding: 8px 12px;
 	border: 1px solid rgb(200, 200, 200);
@@ -30,17 +31,17 @@ button{
 	transition: border ease 200ms;
 }
 
-button:hover{
+button:hover {
 	border-color: blue;
 	cursor: pointer;
 }
 
-button img{
+button img {
 	width: 25px;
 	margin-right: 5px;
 }
 
-button.jira_injection_btn{
+button.jira_injection_btn {
 	padding: 0;
 	display: flex;
 	align-items: center;
@@ -55,38 +56,44 @@ button.jira_injection_btn{
 }
 
 /* Element Styles */
-#extension_title{
+#extension_title {
 	background-color: rgb(225, 225, 225);
 	padding: 10px;
 }
 
-#shak_decache_message {
+#shak_decache_message,
+#akamai_purge_message {
 	margin-top: 3px;
 	padding: 3px;
 	border: 1px solid grey;
 	text-align: center;
 }
 
-#shak_decache_message.hide {
+#shak_decache_message.hide,
+#akamai_purge_message.hide {
 	display: none;
 }
 
-#shak_decache_message.success {
+#shak_decache_message.success,
+#akamai_purge_message.success {
 	border-color: green;
 	color: green;
 	background-color: rgb(180, 216, 180);
 }
 
-#shak_decache_message.fail {
+#shak_decache_message.fail,
+#akamai_purge_message.fail {
 	border-color: red;
 	color: red;
 	background-color: rgb(231, 220, 220);
 }
 
-#shak_decache_button_spinner {
+#shak_decache_button_spinner,
+#akamai_purge_button_spinner {
 	display: none;
 }
 
-#shak_decache_button_spinner.active {
+#shak_decache_button_spinner.active,
+#akamai_purge_button_spinner.active {
 	display: inline;
 }

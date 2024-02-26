@@ -26,10 +26,10 @@ const purgeCurrentUrl = async () => {
 		let purgeResponse
 		try {
 			purgeResponse = await sendPurgeRequest(url)
-            alert(purgeResponse)
 		} catch (err) {
 			return failFetch(err)
 		}
+		if (purgeResponse.includes('Error')) return failFetch(purgeResponse)
 		successFetch(purgeResponse)
 	})
 }
@@ -43,16 +43,22 @@ const addAkamaiPurgeMessage = message => (akamaiPurgeMessageContent.innerHTML = 
 const addAkamaiPurgeMessageResult = result => (akamaiPurgeMessageResult.innerHTML = result)
 
 // API Call
-const sendPurgeRequest = async url => {
-	alert(url)
-    const res = await fetch(`127.0.0.1:${AKAMAI_URL_PORT}/akamaipurge`, {
-		method: 'POST',
-		cache: 'no-cache',
-		body: url
-	})
-    alert(res)
-	if (!res.ok) throw new Error(`Error sending request to server: ${res.status}\n${res.text()}`)
-	return res.text()
+const sendPurgeRequest = async purgeUrl => {
+	const apiUrl = `http://127.0.0.1:${AKAMAI_URL_PORT}/akamaipurge`
+	let res
+	try {
+		res = await fetch(apiUrl, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'text/plain'
+			},
+			body: purgeUrl
+		})
+	} catch (err) {
+		throw new Error(`Couldn't send request. Are you sure the SS Toolbox app is running?\n${err}`)
+	}
+	if (!res.ok) throw new Error(`The server returned with an error : ${res.status}\n${await res.text()}`)
+	return await res.text()
 }
 
 // Utility

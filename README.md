@@ -15,9 +15,9 @@ Currently, SS Ext can do the following:
 
 To add your own new service, make sure to create a PR and then merge into main. In terms of folder structure, please follow the following rules:
 
-1. Create a new folder in the '/Services' folder with the name of your service (please use a naming convention similar to the ones used previously i.e. my_example_service)
-2. Add an 'index.js' file in that folder with your desired logic
-3. In the '/manifest.json' file, add the path to your index file to the content_scripts js property:
+1. Create a new folder in the `/Services` folder with the name of your service (please use a naming convention similar to the ones used previously i.e. my_example_service)
+2. Add an `index.js` file in that folder with your desired logic
+3. In the `/manifest.json` file, add the path to your index file to the content_scripts js property:
 
 ```
 "content_scripts": [
@@ -29,3 +29,7 @@ To add your own new service, make sure to create a PR and then merge into main. 
 ```
 
 Note: content scripts are scoped to the actual webpage you are on and NOT to the extension. In order to run your extension logic, add a script tag (preferably different to your index.js) to 'index.html'. You can also add logic to the '/background.js' file for anything that you require to keep running in the background. This is a bit tricky to work with, so for good measure, please have a look at the latest documentation for creating chrome extensions.
+
+## Adding Options
+
+You might need to add some options for your functionality. This can be done in the `Options` folder. This contains an `options.html` and a `options.css` file which generate the small popup when you click on the extension options. The logic for getting and setting these options is in the `options.js` file

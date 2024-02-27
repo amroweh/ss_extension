@@ -33,3 +33,11 @@ Note: content scripts are scoped to the actual webpage you are on and NOT to the
 ## Adding Options
 
 You might need to add some options for your functionality. This can be done in the `Options` folder. This contains an `options.html` and a `options.css` file which generate the small popup when you click on the extension options. The logic for getting and setting these options is in the `options.js` file
+
+## Issues
+
+If you encounter any issues while using the app, you can raise an issue in the corresponding pane on github and this will be looked at.
+
+## Contact
+
+For any enquiries please don't hesitate to contact Ali Mroweh (ali.mroweh@sky.uk) or someone from the Knuckles squad.

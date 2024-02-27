@@ -32,7 +32,7 @@ Note: content scripts are scoped to the actual webpage you are on and NOT to the
 
 ## Adding Options
 
-You might need to add some options for your functionality. This can be done in the `Options` folder. This contains an `options.html` and a `options.css` file which generate the small popup when you click on the extension options. The logic for getting and setting these options is in the `options.js` file
+You might need to add some options for your functionality (such as a fixed value that could be set and unset by the user e.g. dark/light mode). This can be done in the `Options` folder. This contains an `options.html` and a `options.css` file which generate the small popup when you click on the extension options. The logic for getting and setting these options is in the `options.js` file
 
 ## Issues
 

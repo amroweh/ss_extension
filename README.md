@@ -11,6 +11,10 @@ Currently, SS Ext can do the following:
 3. **Site Identifier**: When you're on Sky Sports live website, this will automatically know if you're on a HEXA or Legacy page and show it as a badge on the top right side of the screen
 4. **Akamai Purge**: Click on the Akamai purge button and this will send a POST request to the local server running by the Sky Sports Toolbox. This request will contain the current open url and will be used by the local server to send an Akamai purge request. Please note that this will not run if the SS Toolbox app is not running.
 
+## Loading the Extension
+
+To load the extension, first clone this repo into one of your local directories. Then, in your chrome browser, go to Extensions -> Manage Extensions. Click on the 'Load Unpacked' button at the top left of your browser and select that directory. This should load the extension into the browser. If modifying the files or pulling new data from the repo, just click on the rotating arrow in the 'Extensions' -> 'My Extensions' page and this should load the new changes.
+
 ## Adding Your Own Service
 
 To add your own new service, make sure to create a PR and then merge into main. In terms of folder structure, please follow the following rules:

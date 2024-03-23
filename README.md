@@ -23,7 +23,7 @@ To add your own new service, make sure to create a PR and then merge into main. 
 2. Add an `index.js` file in that folder with your desired logic
 3. In the `/manifest.json` file, add the path to your index file to the content_scripts js property:
 
-```
+```js
 "content_scripts": [
     {
         "js": ["Services/my_example_service/index.js"],

@@ -10,8 +10,15 @@ const injectIntoTicket = content => {
 	chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		console.log(sender.tab ? 'from a content script:' + sender.tab.url : 'from the extension')
 		if (request.action === 'JIRA_TEMPLATE') {
-			injectIntoTicket(request.jiraTemplateContent)
-			sendResponse('Received JIRA TEMPLATE signal from background!')
+			fetch(
+				'https://agile.at.sky/rest/agile/1.0/sprint/91090/issue?jql=status%20=%20Backlog&fields=description,summary'
+			)
+				.then(res => res.json())
+				.then(data => {
+					injectIntoTicket(data.issues.find(issue => issue.id === request.jiraTemplateContentId).fields.description)
+					sendResponse('Received JIRA TEMPLATE signal from background!')
+				})
+				.catch()
 		}
 	})
 })()

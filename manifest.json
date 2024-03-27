@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Sky Toolbox",
+  "name": "SS Extension",
   "description": "Automates repetitive tasks for an optimal workflow",
   "version": "1.0",
   "action": {

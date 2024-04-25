@@ -6,10 +6,11 @@ Sky Sports Extension is a chrome extension that allows you to reduce the time yo
 
 Currently, SS Ext can do the following:
 
-1. **JIRA Injector**: Injects a predefined template into a JIRA ticket description. For this to work, click on the desired ticket, click into the description input, click on the extension button that you desire.
-2. **SHAK Decacher - _UNDER DEVELOPMENT_**: Click on the SHAK decacher button. This will determine which URL you are at, and using a predefined map of url -> decache url(s), will send a SHAK request to decache those urls
-3. **Site Identifier**: When you're on Sky Sports live website, this will automatically know if you're on a HEXA or Legacy page and show it as a badge on the top right side of the screen
-4. **Akamai Purge**: Click on the Akamai purge button and this will send a POST request to the local server running by the Sky Sports Toolbox. This request will contain the current open url and will be used by the local server to send an Akamai purge request. Please note that this will not run if the SS Toolbox app is not running.
+1. **Cache Buster**: Appends a cache buster to the current url and goes to it. This cache buster is a cb followed by a current date value.
+2. **JIRA Injector**: Injects a predefined template into a JIRA ticket description. For this to work, click on the desired ticket, click into the description input, click on the extension button that you desire.
+3. **SHAK Decacher - _UNDER DEVELOPMENT_**: Click on the SHAK decacher button. This will determine which URL you are at, and using a predefined map of url -> decache url(s), will send a SHAK request to decache those urls
+4. **Site Identifier**: When you're on Sky Sports live website, this will automatically know if you're on a HEXA or Legacy page and show it as a badge on the top right side of the screen
+5. **Akamai Purge**: Click on the Akamai purge button and this will send a POST request to the local server running by the Sky Sports Toolbox. This request will contain the current open url and will be used by the local server to send an Akamai purge request. Please note that this will not run if the SS Toolbox app is not running.
 
 ## Loading the Extension
 

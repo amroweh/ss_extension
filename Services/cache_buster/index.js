@@ -1,7 +1,7 @@
 let cacheBusterButton, cacheBusterButtonSpinner
 ;(() => {
 	cacheBusterButton = document.querySelector('#cache_buster_button')
-	cacheBusterButton.addEventListener('click', () => {
+	cacheBusterButton?.addEventListener('click', () => {
 		decacheCurrentURL()
 	})
 })()

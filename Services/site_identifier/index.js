@@ -15,7 +15,7 @@ const generatePopup = isHexa => {
 
 chrome.storage.sync.get({siteIdentifier: true}, options => {
 	if (options.siteIdentifier && window.location.host.includes('skysports.com')) {
-		const isHexa = document.querySelector('html').classList.contains('is-modern')
+		const isHexa = document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')
 		document.querySelector('body').append(generatePopup(isHexa))
 	}
 })

@@ -1,4 +1,4 @@
-const generatePopup = (isHexa, isOrigin) => {
+const generatePopup = (isHexa, isOrigin, environment) => {
 	const container = document.createElement('span')
 	container.style.display = 'flex'
 	container.style.flexDirection = 'column'
@@ -22,6 +22,14 @@ const generatePopup = (isHexa, isOrigin) => {
 	origin.style.fontWeight = 'bold'
 	origin.style.padding = '2px 15px'
 	container.appendChild(origin)
+	const env = document.createElement('span')
+	env.textContent = environment
+	if(environment === "PROD") env.style.backgroundColor = "blue"
+	else if(environment === "STAGE") env.style.backgroundColor = "purple"
+	else env.style.backgroundColor = "pink"
+	env.style.color = 'white'
+	env.style.padding = '2px 15px'
+	container.appendChild(env)
 	return container
 }
 
@@ -65,18 +73,18 @@ const readablePages = {
 	"skysports-3.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": false},
 	"skysports-4.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": false},
 	// Live
-	"skysports.com": {"env": "LIVE", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
-	"uk-sport-web.prod-a": {"env": "LIVE", "isOrigin": true, "isHEXA": true},
-	"uk-sport-web.prod-b": {"env": "LIVE", "isOrigin": true, "isHEXA": true},
-	"skysports.prod-a": {"env": "LIVE", "isOrigin": true, "isHEXA": false},
-	"skysports.prod-b": {"env": "LIVE", "isOrigin": true, "isHEXA": false},
+	"skysports.com": {"env": "PROD", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uk-sport-web.prod-a": {"env": "PROD", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web.prod-b": {"env": "PROD", "isOrigin": true, "isHEXA": true},
+	"skysports.prod-a": {"env": "PROD", "isOrigin": true, "isHEXA": false},
+	"skysports.prod-b": {"env": "PROD", "isOrigin": true, "isHEXA": false},
 }
 
 chrome.storage.sync.get({siteIdentifier: true}, options => {
 	if(!options.siteIdentifier) return
 	for(const pageName in readablePages){
 		if(window.location.host.includes(pageName)) {
-			console.log("Includes!");document.querySelector('body').append(generatePopup(readablePages[pageName]['isHEXA'], readablePages[pageName]['isOrigin']))
+			console.log("Includes!");document.querySelector('body').append(generatePopup(readablePages[pageName]['isHEXA'], readablePages[pageName]['isOrigin'], readablePages[pageName]['env']))
 			return
 		}
 	}

@@ -1,21 +1,83 @@
-const generatePopup = isHexa => {
-	const popup = document.createElement('span')
-	popup.classList.add('sky_toolbox_popup')
-	popup.textContent = isHexa ? 'HEXA' : 'LEGACY'
-	popup.style.backgroundColor = isHexa ? 'blue' : 'purple'
-	popup.style.color = 'white'
-	popup.style.fontWeight = 'bold'
-	popup.style.padding = '10px 15px'
-	popup.style.position = 'fixed'
-	popup.style.zIndex = 1000000
-	popup.style.top = 0
-	popup.style.right = 0
-	return popup
+const generatePopup = (isHexa, isOrigin) => {
+	const container = document.createElement('span')
+	container.style.display = 'flex'
+	container.style.flexDirection = 'column'
+	container.style.zIndex = 1000000
+	container.style.position = 'fixed'
+	container.style.top = 0
+	container.style.right = 0
+	container.style.textAlign = 'center'
+	container.classList.add('sky_toolbox_popup')
+	const version = document.createElement('span')
+	version.textContent = isHexa ? 'HEXA' : 'LEGACY'
+	version.style.backgroundColor = isHexa ? 'blue' : 'purple'
+	version.style.color = 'white'
+	version.style.fontWeight = 'bold'
+	version.style.padding = '6px 15px'
+	container.appendChild(version)
+	const origin = document.createElement('span')
+	origin.textContent = isOrigin ? 'origin' : 'vanity'
+	origin.style.backgroundColor = isOrigin ? 'green' : 'grey'
+	origin.style.color = 'white'
+	origin.style.fontWeight = 'bold'
+	origin.style.padding = '2px 15px'
+	container.appendChild(origin)
+	return container
+}
+
+const readablePages = {
+	// UAT
+	"uat-1.skysports.com": {"env": "UAT", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uat-2.skysports.com": {"env": "UAT", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uat-3.skysports.com": {"env": "UAT", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uat-4.skysports.com": {"env": "UAT", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uat-5.skysports.com": {"env": "UAT", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uat-6.skysports.com": {"env": "UAT", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uat-7.skysports.com": {"env": "UAT", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uat-8.skysports.com": {"env": "UAT", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uat-9.skysports.com": {"env": "UAT", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uk-sport-web-1.uat": {"env": "UAT", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-2.uat": {"env": "UAT", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-3.uat": {"env": "UAT", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-4.uat": {"env": "UAT", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-5.uat": {"env": "UAT", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-6.uat": {"env": "UAT", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-7.uat": {"env": "UAT", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-8.uat": {"env": "UAT", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-9.uat": {"env": "UAT", "isOrigin": true, "isHEXA": true},
+	"skysports-1.uat": {"env": "UAT", "isOrigin": true, "isHEXA": false},
+	"skysports-2.uat": {"env": "UAT", "isOrigin": true, "isHEXA": false},
+	"skysports-3.uat": {"env": "UAT", "isOrigin": true, "isHEXA": false},
+	"skysports-4.uat": {"env": "UAT", "isOrigin": true, "isHEXA": false},
+	"skysports-5.uat": {"env": "UAT", "isOrigin": true, "isHEXA": false},
+	"skysports-6.uat": {"env": "UAT", "isOrigin": true, "isHEXA": false},
+	"skysports-7.uat": {"env": "UAT", "isOrigin": true, "isHEXA": false},
+	"skysports-8.uat": {"env": "UAT", "isOrigin": true, "isHEXA": false},
+	"skysports-9.uat": {"env": "UAT", "isOrigin": true, "isHEXA": false},
+	// Stage
+	"stage.skysports.com": {"env": "STAGE", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uk-sport-web-1.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-2.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-3.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web-4.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": true},
+	"skysports-1.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": false},
+	"skysports-2.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": false},
+	"skysports-3.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": false},
+	"skysports-4.stage": {"env": "STAGE", "isOrigin": true, "isHEXA": false},
+	// Live
+	"skysports.com": {"env": "LIVE", "isOrigin": false, "isHEXA": document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')},
+	"uk-sport-web.prod-a": {"env": "LIVE", "isOrigin": true, "isHEXA": true},
+	"uk-sport-web.prod-b": {"env": "LIVE", "isOrigin": true, "isHEXA": true},
+	"skysports.prod-a": {"env": "LIVE", "isOrigin": true, "isHEXA": false},
+	"skysports.prod-b": {"env": "LIVE", "isOrigin": true, "isHEXA": false},
 }
 
 chrome.storage.sync.get({siteIdentifier: true}, options => {
-	if (options.siteIdentifier && window.location.host.includes('skysports.com')) {
-		const isHexa = document.querySelector('html').classList.contains('is-modern') || window.location.pathname.includes('/amp/')
-		document.querySelector('body').append(generatePopup(isHexa))
+	if(!options.siteIdentifier) return
+	for(const pageName in readablePages){
+		if(window.location.host.includes(pageName)) {
+			console.log("Includes!");document.querySelector('body').append(generatePopup(readablePages[pageName]['isHEXA'], readablePages[pageName]['isOrigin']))
+			return
+		}
 	}
 })
